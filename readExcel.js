@@ -29,12 +29,12 @@ readXlsxFile('/Users/georgi/pencil-db/Topics.xlsx').then(async (rows) => {
     // Read Topic Excel rows
     for(let i = 1; i < rows.length; i++){
 
-        let topic = rows[i][0]; //This is topic1 excel
+        let topic = rows[i][0]; //This is topic1 in excel file
         let topic2 = rows[i][1];
         let topic3 = rows[i][2];
 
         if(!uniqueTopicMap.has(topic)){
-            let topicObject ={topicName:topic,topicId: idCounter,parentId:0 };
+            let topicObject = {topicName: topic, topicId: idCounter, parentId: 0 };
             uniqueTopicMap.set(topic,topicObject);
             idCounter++;
             database.collection("topics").insertOne(topicObject, function(err, res) {
@@ -44,22 +44,20 @@ readXlsxFile('/Users/georgi/pencil-db/Topics.xlsx').then(async (rows) => {
         }
 
         if(!uniqueTopicMap.has(topic2)){
-            
             let parentTopic = uniqueTopicMap.get(topic);
-            let topicObject2 ={topicName:topic2,topicId: idCounter,parentId: parentTopic.topicId};
-            uniqueTopicMap.set(topic2,topicObject2);
+            let topicObject2 = {topicName: topic2, topicId: idCounter, parentId: parentTopic.topicId};
+            uniqueTopicMap.set(topic2, topicObject2);
             idCounter++;
             database.collection("topics").insertOne(topicObject2, function(err, res) {
                 if (err) throw err;
                 console.log("2 document inserted");
-                //
             });
         }
 
         if(!uniqueTopicMap.has(topic3)){
             
             let parentTopic2 = uniqueTopicMap.get(topic2);
-            let topicObject3 ={topicName:topic3,topicId: idCounter,parentId: parentTopic2.topicId};
+            let topicObject3 = {topicName: topic3, topicId: idCounter, parentId: parentTopic2.topicId};
             uniqueTopicMap.set(topic3,topicObject3);
             console.log(topicObject3);
             idCounter++;
@@ -89,9 +87,5 @@ readXlsxFile('/Users/georgi/pencil-db/Topics.xlsx').then(async (rows) => {
             console.log("3 document inserted");
         });
     }
-    
-
 });
-
-
 }

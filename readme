@@ -1,0 +1,10 @@
+Main steps:
+* app.js
+1. require packages
+2. Create express app with 
+3. Create mongodb connection to mongo Atlas db
+4. Create "/search" endpoint, method: GET to return array of question numbers when a topic is queried.
+
+* readExcel.js
+5. require packages
+6. populate Atlas db with the data from the rows in the two excel files

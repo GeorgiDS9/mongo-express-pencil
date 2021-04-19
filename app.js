@@ -10,6 +10,7 @@ app.get('/', (req, res) => {
   res.status(200).json('Please use /search endpoint with "q" parameter');
 });
 
+// Create "/search" endpoint, method: GET
 app.get('/search', async(req, res) => {
   try {
     //1. Query params
