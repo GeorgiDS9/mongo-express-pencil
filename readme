@@ -8,3 +8,14 @@ Main steps:
 * readExcel.js
 5. require packages
 6. populate Atlas db with the data from the rows in the two excel files
+
+Example of query:
+http://localhost:3000/search?q=Chloroplasts
+
+Query result for the "Chloroplasts" topic:
+[
+  15,
+  48,
+  87,
+  190
+]
