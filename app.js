@@ -33,9 +33,11 @@ app.get('/search', async(req, res) => {
     if(topicResult){
       //4. Fetch data from Questions collection
       const topicId = topicResult.topicId;
-      const questions = await database.collection("questions").find( { topicIds: { $all: [topicId] } } ).toArray();
+      const parentId = {rootTopicId: topicResult.parentId};
+      const questions = await database.collection("questions").find( { topicIds: { $all: [topicId] }}).toArray();
       let matchQuestions = [];
-      for(var i = 0; i < questions.length; i++){
+      matchQuestions.push(parentId);
+      for(let i = 0; i < questions.length; i++){
         matchQuestions.push(questions[i].questionNo);
       }
       res.status(200).json(matchQuestions);
