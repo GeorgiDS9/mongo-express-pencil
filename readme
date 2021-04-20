@@ -11,6 +11,8 @@ Main steps:
     "nodemon": "^2.0.7",
     "read-excel-file": "5.1.0"
   }
+* nodemon: https://www.npmjs.com/package/nodemon
+* dotenv: https://www.npmjs.com/package/dotenv
 * run "npm install" in the console to generate node_modules
 * create .gitignore file and add node_modules and .env to it.
 * run "git init", create remote respository and link to remote repository
@@ -29,7 +31,8 @@ readExcel.js
 Example of query:
 http://localhost:3000/search?q=Chloroplasts
 
-Query result for the "Chloroplasts" topic (including the parent/root id)
+Query result for the "Chloroplasts" topic (including the parent/root id):
+
 [
 {
 "rootTopicId": 2
