@@ -14,8 +14,7 @@ Main steps:
   }
 - nodemon: https://www.npmjs.com/package/nodemon
 - dotenv: https://www.npmjs.com/package/dotenv
-- run "npm install" in the terminal to generate node_modulessd  
-  x chjkl;'/;vc ;'/cv x
+- run "npm install" in the terminal to generate node_modules
 - create .gitignore file and add node_modules, .DS_Store and .env to it.
 - run "git init", create remote respository and link to remote repository
 
